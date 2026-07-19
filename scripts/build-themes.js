@@ -55,7 +55,8 @@ themeColors.forEach((themeColor, colorIndex) => {
     {
       name: "pico",
       content: `@use "../scss" with (
-        $theme-color: "${themeColor}"
+        $theme-color: "${themeColor}",
+        $enable-responsive-typography: false
       );`,
     },
     {
@@ -63,7 +64,8 @@ themeColors.forEach((themeColor, colorIndex) => {
       content: `@use "../scss" with (
         $theme-color: "${themeColor}",
         $enable-semantic-container: true,
-        $enable-classes: false
+        $enable-classes: false,
+        $enable-responsive-typography: false
       );`,
     },
     {
@@ -72,14 +74,16 @@ themeColors.forEach((themeColor, colorIndex) => {
         $theme-color: "${themeColor}", 
         $enable-semantic-container: true, 
         $enable-viewport: false, 
-        $enable-classes: false
+        $enable-classes: false,
+        $enable-responsive-typography: false
       );`,
     },
     {
       name: "pico.conditional",
       content: `@use "../scss" with (
         $theme-color: "${themeColor}",
-        $parent-selector: ".pico"
+        $parent-selector: ".pico",
+        $enable-responsive-typography: false
       );`,
     },
     {
@@ -88,7 +92,8 @@ themeColors.forEach((themeColor, colorIndex) => {
         $theme-color: "${themeColor}",
         $enable-semantic-container: true,
         $enable-classes: false,
-        $parent-selector: ".pico"
+        $parent-selector: ".pico",
+        $enable-responsive-typography: false
       );`,
     },
     {
@@ -98,7 +103,8 @@ themeColors.forEach((themeColor, colorIndex) => {
         $enable-semantic-container: true, 
         $enable-viewport: false, 
         $enable-classes: false,
-        $parent-selector: ".pico"
+        $parent-selector: ".pico",
+        $enable-responsive-typography: false
       );`,
     },
   ];
@@ -134,8 +140,12 @@ themeColors.forEach((themeColor, colorIndex) => {
     fs.writeFileSync(path.join(cssFoldername, `${version.name}.${themeColor}.css`), result.css);
 
     // Clear the console
-    process.stdout.clearLine();
-    process.stdout.cursorTo(0);
+    if (process.stdout.clearLine) {
+      process.stdout.clearLine();
+    }
+    if (process.stdout.cursorTo) {
+      process.stdout.cursorTo(0);
+    }
   });
 });
 
