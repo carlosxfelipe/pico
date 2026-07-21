@@ -442,6 +442,28 @@ $slate-100: #dfe3eb;
 $slate-50: #eff1f4;
 $slate: $slate-600;
 
+// Brand
+$brand-950: #5d0c12;
+$brand-900: #841119;
+$brand-850: #a1151e;
+$brand-800: #b61822;
+$brand-750: #c31924;
+$brand-700: #d01b27;
+$brand-650: #da1c29;
+$brand-600: #e41e2b;
+$brand-550: #e6444d;
+$brand-500: #e96b6f;
+$brand-450: #ee9b9d;
+$brand-400: #f0a8a9;
+$brand-350: #f2b6b7;
+$brand-300: #f6d1d2;
+$brand-250: #f8dde0;
+$brand-200: #fbe9ea;
+$brand-150: #fceeeb;
+$brand-100: #fcf2f2;
+$brand-50: #fdf9f9;
+$brand: $brand-600;
+
 $colors: (
   red: (
     950: $red-950,
@@ -882,5 +904,27 @@ $colors: (
     100: $slate-100,
     50: $slate-50,
     main: $slate,
+  ),
+  brand: (
+    950: $brand-950,
+    900: $brand-900,
+    850: $brand-850,
+    800: $brand-800,
+    750: $brand-750,
+    700: $brand-700,
+    650: $brand-650,
+    600: $brand-600,
+    550: $brand-550,
+    500: $brand-500,
+    450: $brand-450,
+    400: $brand-400,
+    350: $brand-350,
+    300: $brand-300,
+    250: $brand-250,
+    200: $brand-200,
+    150: $brand-150,
+    100: $brand-100,
+    50: $brand-50,
+    main: $brand,
   ),
 );

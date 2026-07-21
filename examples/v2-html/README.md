@@ -17,3 +17,22 @@
 A pure HTML example, without dependencies.
 
 [![Open in CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/picocss/examples/tree/master/v2-html)
+
+## Brand Color Mapping
+
+- Pico 100: `#fcf2f2` (shade0)
+- Pico 200: `#fbe9ea` (shade100)
+- Pico 300: `#f6d1d2` (shade200)
+- Pico 350: `#f2b6b7` (shade300)
+- Pico 450: `#ee9b9d` (shade400)
+- Pico 500: `#e96b6f` (shade500)
+- Pico 600: `#e41e2b` (shade600)
+- Pico 700: `#d01b27` (shade700)
+- Pico 800: `#b61822` (shade800)
+- Pico 850: `#a1151e` (shade900)
+- Pico 900: `#841119` (shade1000)
+- Pico 950: `#5d0c12` (shade1100)
+
+## Additional Configurations
+
+- `$enable-responsive-typography: false`: Disabled because Pico CSS default font sizes tend to be much larger than standard preferences. This keeps the typography more compact and consistent across different screen sizes.

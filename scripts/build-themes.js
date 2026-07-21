@@ -2,7 +2,7 @@ const sass = require("sass");
 const path = require("path");
 const fs = require("fs");
 
-const themeColors = [
+const officialColors = [
   "amber",
   "blue",
   "cyan",
@@ -24,6 +24,10 @@ const themeColors = [
   "zinc",
 ];
 
+const customColors = ["brand"];
+
+const themeColors = [...officialColors, ...customColors];
+
 const tempScssFoldername = path.join(__dirname, "../.pico");
 const cssFoldername = path.join(__dirname, "../css");
 
@@ -44,6 +48,7 @@ const emptyFolder = (foldername) => {
 
 // Create the temp folder if it doesn't exist
 createFolderIfNotExists(tempScssFoldername);
+createFolderIfNotExists(cssFoldername);
 
 // Empty the temp folder
 emptyFolder(tempScssFoldername);
