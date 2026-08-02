@@ -34,7 +34,7 @@ const cssFoldername = path.join(__dirname, "../css");
 // Create a folder if it doesn't exist
 const createFolderIfNotExists = (foldername) => {
   if (!fs.existsSync(foldername)) {
-    fs.mkdirSync(foldername);
+    fs.mkdirSync(foldername, { recursive: true });
   }
 };
 
@@ -135,14 +135,29 @@ themeColors.forEach((themeColor, colorIndex) => {
       version.content,
     );
 
-    // Compile the file
-    const result = sass.compile(
+    // Compile the file (expanded)
+    const resultExpanded = sass.compile(
       path.join(tempScssFoldername, `${version.name}.${themeColor}.scss`),
-      { outputStyle: "compressed" },
+      { style: "expanded" },
     );
 
-    // Write the file
-    fs.writeFileSync(path.join(cssFoldername, `${version.name}.${themeColor}.css`), result.css);
+    // Write the unminified file
+    fs.writeFileSync(
+      path.join(cssFoldername, `${version.name}.${themeColor}.css`),
+      resultExpanded.css,
+    );
+
+    // Compile the file (compressed)
+    const resultCompressed = sass.compile(
+      path.join(tempScssFoldername, `${version.name}.${themeColor}.scss`),
+      { style: "compressed" },
+    );
+
+    // Write the minified file
+    fs.writeFileSync(
+      path.join(cssFoldername, `${version.name}.${themeColor}.min.css`),
+      resultCompressed.css,
+    );
 
     // Clear the console
     if (process.stdout.clearLine) {
