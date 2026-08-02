@@ -16,7 +16,6 @@
 
 A pure HTML example, without dependencies.
 
-[![Open in CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/picocss/examples/tree/master/v2-html)
 
 ## Brand Color Mapping
 
@@ -36,3 +35,23 @@ A pure HTML example, without dependencies.
 ## Additional Configurations
 
 - `$enable-responsive-typography: false`: Disabled because Pico CSS default font sizes tend to be much larger than standard preferences. This keeps the typography more compact and consistent across different screen sizes.
+
+## Updating CSS Themes
+
+If you want to update the generated CSS files for this example, you need to adjust the build script located at `scripts/build-themes.js` in the root of the repository.
+
+1. Ensure the output directory points to this example's `css` folder by modifying:
+   ```javascript
+   const cssFoldername = path.join(__dirname, "../examples/v2-html/css");
+   ```
+
+2. Specify which colors to generate by updating the colors array. For example, if you want to generate **only** the `brand` custom color, change it to:
+   ```javascript
+   const customColors = ["brand"];
+   const themeColors = [...customColors];
+   ```
+
+3. Run the script from the root of the repository:
+   ```bash
+   node scripts/build-themes.js
+   ```
