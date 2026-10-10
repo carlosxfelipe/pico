@@ -29,7 +29,10 @@ const customColors = ["brand"];
 const themeColors = [...officialColors, ...customColors];
 
 const tempScssFoldername = path.join(__dirname, "../.pico");
-const cssFoldername = path.join(__dirname, "../css");
+const targetFolder = process.argv[2];
+const cssFoldername = targetFolder
+  ? path.resolve(process.cwd(), targetFolder)
+  : path.join(__dirname, "../css");
 
 // Create a folder if it doesn't exist
 const createFolderIfNotExists = (foldername) => {
